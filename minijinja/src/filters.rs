@@ -726,7 +726,7 @@ mod builtins {
     /// <a href="#" data-info='{{ json_object|tojson }}'>...</a>
     /// ```
     #[cfg_attr(docsrs, doc(cfg(all(feature = "builtins", feature = "json"))))]
-    #[cfg(feature = "indent")]
+    #[cfg(feature = "json")]
     pub fn tojson(value: Value, pretty: Option<bool>) -> Result<Value, Error> {
         if pretty.unwrap_or(false) {
             serde_json::to_string_pretty(&value)
@@ -763,10 +763,10 @@ mod builtins {
     /// example:
     ///   config:
     /// {{ global_config|indent(2,true) }}; #indent with 2 Tabs
-    /// {{ glabal_config|indent(4) }} #indent with 4 spaces
+    /// {{ glabal_config|indent(4) }} #indent with 4 
     /// ```
     #[cfg_attr(docsrs, doc(cfg(all(feature = "builtins", feature = "include"))))]
-    #[cfg(feature = "json")]
+    #[cfg(feature = "include")]
     pub fn indent(value: String, spaces: usize, tabs: Option<bool>) -> String {
         let mut output: String = String::new();
         if tabs.unwrap_or(false) {
