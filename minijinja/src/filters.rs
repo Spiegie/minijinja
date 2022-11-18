@@ -726,7 +726,7 @@ mod builtins {
     /// <a href="#" data-info='{{ json_object|tojson }}'>...</a>
     /// ```
     #[cfg_attr(docsrs, doc(cfg(all(feature = "builtins", feature = "json"))))]
-    #[cfg(feature = "json")]
+    #[cfg(feature = "indent")]
     pub fn tojson(value: Value, pretty: Option<bool>) -> Result<Value, Error> {
         if pretty.unwrap_or(false) {
             serde_json::to_string_pretty(&value)
