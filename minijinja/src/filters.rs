@@ -754,7 +754,7 @@ mod builtins {
 
     /// indents Value with spaces or tabs
     ///
-    /// This filter is only available if the `include` feature is enabled.  The resulting
+    /// This filter is only available if the `indent` feature is enabled.  The resulting
     /// characters.  The optional parameter to the filter can be set to `true` to enable 
     /// indenting with \t. 
     /// This filter is useful, if you want to template yaml-files
@@ -765,8 +765,8 @@ mod builtins {
     /// {{ global_config|indent(2,true) }}; #indent with 2 Tabs
     /// {{ glabal_config|indent(4) }} #indent with 4 
     /// ```
-    #[cfg_attr(docsrs, doc(cfg(all(feature = "builtins", feature = "include"))))]
-    #[cfg(feature = "include")]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = "builtins", feature = "indent"))))]
+    #[cfg(feature = "indent")]
     pub fn indent(value: String, spaces: usize, tabs: Option<bool>) -> String {
         let mut output: String = String::new();
         if tabs.unwrap_or(false) {
